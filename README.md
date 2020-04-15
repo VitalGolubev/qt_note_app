@@ -1,4 +1,4 @@
-#Very simple Note App
+# Very simple Note App
 
 written with PyQt5
 
