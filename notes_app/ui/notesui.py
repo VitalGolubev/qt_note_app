@@ -120,6 +120,9 @@ class MainWindow(QtWidgets.QMainWindow):
         self.update_notes()
         if cur_row is not None:
             self.set_active(cur_row)
+        else:
+            self.set_active(self.notesTitleListWidget.count()-1)
+            self.noteTextEdit.setFocus()
 
     def onDeleteClicked(self):
         """ Delete selected Note """
@@ -130,5 +133,10 @@ class MainWindow(QtWidgets.QMainWindow):
     def onCreateClicked(self):
         """ Create new Note """
         self.cur_note = Note()
-        self.onSaveClicked()
-        self.set_active(len(self.notes_service.notes) - 1)
+        self.noteTitleLineEdit.clear()
+        self.noteTextEdit.clear()
+        self.noteTitleLineEdit.setFocus()
+        self.repaint()
+
+        # self.onSaveClicked()
+        # self.set_active(len(self.notes_service.notes) - 1)
